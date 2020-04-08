@@ -1,0 +1,19 @@
+{
+  "name": "kemenkopmk-api",
+  "version": "1.0.0",
+  "description": "kemenkopmk-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bariqmbani/kemenkopmk-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bariqmbani/kemenkopmk-api/issues"
+  },
+  "homepage": "https://github.com/bariqmbani/kemenkopmk-api#readme"
+}

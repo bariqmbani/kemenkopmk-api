@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,label,legend,p,blockquote,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}body{line-height:1;color:black;background:white;}:focus{outline:0;}table{border-collapse:collapse;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}abbr,acronym{border:0;}
+
+body {
+  /* font-family: 'Raleway', sans-serif !important; */
+  font-family: 'Fira Sans', sans-serif !important;
+}
+
+hr {
+  margin: 0 !important;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: rgb(241, 228, 202);
+  color: black;
+  transition: all 0.3s;
+}
+
+.sidebar-nav {
+  padding-left: 20px;
+  
+}
+
+.content {
+  margin-left: 250px;
+}
+
+.nav-list {
+  margin: 5px 20px !important;
+}
+
+.nav-item {
+  color: rgb(88, 88, 88) !important;
+}
+
+.nav-item:hover {
+  color: black !important;
+  text-decoration: none;
+}
+
+.card {
+  background: #fafafa !important;
+}
+
+.method {
+  font-size: 1rem !important;
+  /* letter-spacing: 2px; */
+  /* margin-right: -2px; */
+}
+
+.status {
+  font-size: .7rem !important;
+  padding: 5px;
+}
+
+.heading, .param, .name, .response-detail{
+  height: 24px;
+  line-height: 24px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.heading, .method {
+  text-transform: uppercase;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.param {
+  margin-top: 7px;
+  /* background: #eaeaea; */
+  padding: 0px;
+}
+
+.value-type {
+  font-style: italic;
+}
+
+.json {
+  margin-left: -200px;
+  font-size: 12px;
+  user-select: text;
+}
+
+.pre-custom {
+  margin-bottom: -35px !important;
+  margin-top: -15px !important;
+  user-select: none;
+}
