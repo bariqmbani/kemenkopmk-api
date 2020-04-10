@@ -10,157 +10,186 @@
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 
     <!-- higlight js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" integrity="sha256-zcunqSn1llgADaIPFyzrQ8USIjX2VpuxHzUwYisOwo8=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 <body>
+    <div class="container">
+        <button onclick="topFunction()" id="to-top-btn" title="Go to top">ke atas</button>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav class="sidebar">
     
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <nav class="sidebar">
+                <div class="sidebar-header mt-4 mb-3 p-0">
+                    <h4 class="m-0 p-0">Navigasi</h4>
+                </div>
+                
+                <div class="sidebar-nav mt-4">
+    
+                    <ul class="list-unstyled">
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a class="nav-item" href="#autentikasi">Autentikasi</a>
+                                <li class="nav-sub-list">
+                                    <a href="#mendapatkan-token-baru" class="nav-sub-item">Mendapatkan token baru</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#" class="nav-sub-item">Cek token</a>
+                                </li>
+                            </li>
+                        </div>
+                        
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a class="nav-item" href="#">Contact</a>
+                            </li>
+                        </div>
 
-            <div class="sidebar-header text-center mt-3 mb-3 p-0">
-                <h4 class="m-0 p-0">Dokumentasi API</h4>
-            </div>
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a href="#" class="nav-item">Daftar</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
             
-            <div class="sidebar-nav mt-4">
+            <!-- Page Content -->
+            <div class="content w-100">
+                <div class="container-fluid pt-3">
 
-                <ul class="list-unstyled">
-                    <li class="nav-list">
-                        <a class="nav-item" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-list">
-                        <a class="nav-item" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    <div class="greeting text-justify mb-5">
+                        <h1>Dokumentasi</h1>
+                        <p>Dokumentasi ini berisi informasi penggunaan RESTful API untuk aplikasi web E-Monev Kemenko.</p>
+                        <!-- <p>Beberapa hal yang perlu diketahui, yaitu:</p>
+                        <ul>
+                            <li>status code</li>
+                            <p>response di API akan menggunakan status code 2xx jika berhasil atau 4xx jikaerror</p>
+                        </ul>
+                        <p>Jika ada hal yang perlu ditanyakan langsung hubungi saja .....</p> -->
+                    </div>
+
+                    <section>
+                        <div class="section-header">
+                            <h2 id="autentikasi">Autentikasi</h2>
+                        </div>
+    
+    
+                        <div class="description text-justify">
+                            <p>Bagian ini berisi hal diperlukan untuk autentikasi seperti mendaftarkan akun baru, login, dsb.</p>
+                        </div>
+
+                        <section class="sub-section" id="mendapatkan-token-baru">
+                            <h4>Mendapatkan token baru</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">post</span>
+                                    </div>
+                                    <span class="endpoint">/api/auth</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                        <div class="headers mb-4">
+                            <div class="heading">headers</div>
+                            <hr>
+                            <div class="param row">
+                                <div class="name col-md-3">
+                                    Content-Type
+                                </div>
+                                <div class="value col-md-9">
+                                    application/json
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- QUERY PARAMETER -->
+                        <div class="query mb-4">
+                            <div class="heading">query</div>
+                            <hr>
+                            <div class="param row">
+                                <div class="name col-md-3">
+                                    exp
+                                </div>
+                                <div class="value col-md-9">
+                                    24h
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- REQUEST BODY -->
+                        <div class="req-body mb-4">
+                            <div class="heading">body</div>
+                            <hr>
+                            <div class="param row">
+                                <div class="name col-md-3">
+                                    username
+                                </div>
+                                <div class="value col-md-9">
+                                    <span class="value-type">string</span>
+                                </div>
+                            </div>
+                            <div class="param row">
+                                <div class="name col-md-3">
+                                    password
+                                </div>
+                                <div class="value col-md-9">
+                                    <span class="value-type">string</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="response mb-4">
+                            <div class="heading">response</div>
+                            <hr>
+                            <div class="param">
+                                <div class="name">Status Code
+                                    <div class="badge badge-success p-1">
+                                        <span class="status">200</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <pre class="pre-custom">
+                                <code class="json">
+                                    {
+                                        "status": "success",
+                                        "message": "Login berhasil",
+                                        "token": "&lt;token&gt;"
+                                    }
+                                </code>
+                            </pre>
+    
+                            <div class="param">
+                                <div class="name">Status Code
+                                    <div class="badge badge-danger p-1">
+                                        <span class="status">400</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <pre class="pre-custom">
+                                <code class="json">
+                                    {
+                                        "status": "error",
+                                        "message": "Username atau Password yang Anda masukkan salah"
+                                    }
+                                </code>
+                            </pre>
+                        </div>
+    
+                        </section>
+    
+                        
+                    </section>
+    
+                </div>
+    
         
-        <!-- Page Content -->
-        <div class="content w-100">
-            <div class="container-fluid pt-3">
-
-                <section>
-                    <div class="section-header">
-                        <h2 id="autentikasi">Autentikasi</h2>
-                    </div>
-
-                    <div class="card w-100 mb-2">
-                        <div class="card-body p-1">
-                            <div class="badge badge-info p-2">
-                                <span class="method">post</span>
-                            </div>
-                            <span class="endpoint">/api/test</span>
-                        </div>
-                    </div>
-
-                    <div class="description text-justify">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-
-                    <!-- HEADERS -->
-                    <div class="headers mb-4">
-                        <div class="heading">headers</div>
-                        <hr>
-                        <div class="param row">
-                            <div class="name col-md-3">
-                                Content-Type
-                            </div>
-                            <div class="value col-md-9">
-                                application/json
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- QUERY PARAMETER -->
-                    <div class="query mb-4">
-                        <div class="heading">query</div>
-                        <hr>
-                        <div class="param row">
-                            <div class="name col-md-3">
-                                exp
-                            </div>
-                            <div class="value col-md-9">
-                                24h
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- REQUEST BODY -->
-                    <div class="req-body mb-4">
-                        <div class="heading">body</div>
-                        <hr>
-                        <div class="param row">
-                            <div class="name col-md-3">
-                                username
-                            </div>
-                            <div class="value col-md-9">
-                                <span class="value-type">string</span>
-                            </div>
-                        </div>
-                        <div class="param row">
-                            <div class="name col-md-3">
-                                password
-                            </div>
-                            <div class="value col-md-9">
-                                <span class="value-type">string</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="response mb-4">
-                        <div class="heading">response</div>
-                        <hr>
-                        <div class="param">
-                            <div class="name">Status Code
-                                <div class="badge badge-success p-1">
-                                    <span class="status">200</span>
-                                </div>
-                            </div>
-                        </div>
-                        <pre class="pre-custom">
-                            <code class="json">
-                                {
-                                    "status": "success",
-                                    "message": "Login berhasil",
-                                    "token": "&lt;token&gt;"
-                                }
-                            </code>
-                        </pre>
-
-                        <div class="param">
-                            <div class="name">Status Code
-                                <div class="badge badge-danger p-1">
-                                    <span class="status">400</span>
-                                </div>
-                            </div>
-                        </div>
-                        <pre class="pre-custom">
-                            <code class="json">
-                                {
-                                    "status": "error",
-                                    "message": "Username atau Password yang Anda masukkan salah"
-                                }
-                            </code>
-                        </pre>
-                    </div>
-
-                </section>
-
-
-                
-
-                
-
             </div>
-
     
         </div>
-
     </div>
 </body>
 
