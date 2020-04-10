@@ -1,0 +1,31 @@
+{
+	"User": [
+		{
+			"_id": "507f191e810c19729de860ea",
+			"instance_id": "507f191e810c197239d34vbb",
+			"role": "owner",
+			"username": "owner123",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "owner@email.test",
+			"contact": "08123123123"
+		},
+		{
+			"_id": "507f191e810c19729de86011",
+			"instance_id": "507f191e810c197239d34vcc",
+			"role": "super",
+			"username": "super123",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super@email.test",
+			"contact": "08123123123"
+		},
+		{
+			"_id": "507f191e810c19729de86022",
+			"instance_id": "507f191e810c197239d34vdd",
+			"role": "admin",
+			"username": "admin123",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "admin@email.test",
+			"contact": "08123123123"
+		}
+	]
+}
