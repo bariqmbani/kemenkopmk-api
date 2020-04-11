@@ -10,9 +10,9 @@ const auth: FnController = (req, res, next) => {
 		})
 
 	if (tokenHeader.split(' ')[0] !== 'aweuaweu') {
-		return res.status(400).json({
+		return res.status(401).json({
 			status: 'error',
-			message: 'Token tidak valid',
+			message: 'Token identifier tidak valid',
 		})
 	}
 
