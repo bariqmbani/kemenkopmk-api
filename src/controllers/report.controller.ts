@@ -75,14 +75,26 @@ const downloadReport: FnController = (req, res) => {
 }
 
 const uploadReport: FnController = (req, res) => {
+	const id = uuid()
 	const storage = multer.diskStorage({
 		destination: `${__dirname}/../../public/upload/report`,
 		filename: (req, file, cb) => {
-			cb(null, `${uuid()}.${file.mimetype.split('/')[1]}`)
+			cb(null, `${id}.${file.mimetype.split('/')[1]}`)
 		},
 	})
 
-	const upload = multer({ storage }).single('report')
+	const fileFilter = (req: any, file: any, cb: any) => {
+		if (file.mimetype === 'application/pdf') {
+			cb(null, true)
+		} else {
+			return res.status(400).json({
+				status: 'error',
+				message: 'File tidak valid',
+			})
+		}
+	}
+
+	const upload = multer({ storage, fileFilter }).single('report')
 
 	upload(req, res, (err) => {
 		if (err) {
@@ -95,10 +107,11 @@ const uploadReport: FnController = (req, res) => {
 		const reportDummy = { Report: [...Report] }
 
 		const newReport: any = {
-			_id: uuid(),
+			_id: id,
 			instance_id: req.user.instance_id,
 			uploader_id: req.user._id,
 			date: Date.now(),
+			update: Date.now(),
 		}
 
 		reportDummy.Report.push(newReport)
@@ -114,8 +127,96 @@ const uploadReport: FnController = (req, res) => {
 	})
 }
 
-const updateReport: FnController = (req, res) => {}
+const updateReport: FnController = (req, res) => {
+	const id = req.params.id
 
-const deleteReport: FnController = (req, res) => {}
+	const report = Report.filter((report) => report._id === id)
+
+	if (report.length < 1) {
+		return res.status(400).json({
+			status: 'error',
+			message: 'File tidak ditemukan',
+		})
+	}
+
+	const storage = multer.diskStorage({
+		destination: `${__dirname}/../../public/upload/report`,
+		filename: (req, file, cb) => {
+			cb(null, `${id}.${file.mimetype.split('/')[1]}`)
+		},
+	})
+
+	const fileFilter = (req: any, file: any, cb: any) => {
+		if (file.mimetype === 'application/pdf') {
+			cb(null, true)
+		} else {
+			return res.status(400).json({
+				status: 'error',
+				message: 'File tidak valid',
+			})
+		}
+	}
+
+	const upload = multer({ storage, fileFilter }).single('report')
+
+	upload(req, res, (err) => {
+		if (err) {
+			return res.status(400).json({
+				status: 'error',
+				message: 'File tidak valid',
+				error: err,
+			})
+		}
+
+		const updatedReport: [] | any = []
+		Report.forEach((report) => {
+			if (report._id === id) {
+				report.update = Date.now()
+			}
+			return updatedReport.push(report)
+		})
+
+		const data = JSON.stringify({ Report: [...updatedReport] })
+		fs.writeFileSync(`${__dirname}/../dummy/report.json`, data)
+
+		return res.json({
+			status: 'success',
+			message: 'Berhasil memperbarui dokumen laporan',
+			document_id: id,
+		})
+	})
+}
+
+const deleteReport: FnController = (req, res) => {
+	const id = req.params.id
+
+	const report = Report.filter((report) => report._id === id)
+
+	if (report.length < 1) {
+		return res.status(400).json({
+			status: 'error',
+			message: 'File tidak ditemukan',
+		})
+	}
+
+	const updatedReport: [] | any = []
+	Report.forEach((report) => {
+		if (report._id !== id) {
+			return updatedReport.push(report)
+		}
+	})
+
+	const data = JSON.stringify({ Report: [...updatedReport] })
+	fs.writeFileSync(`${__dirname}/../dummy/report.json`, data)
+
+	const file = `${__dirname}/../../public/upload/report/${id}.pdf`
+	fs.unlinkSync(file)
+
+	return res.json({
+		status: 'success',
+		message: 'Berhasil menghapus dokumen laporan',
+		document_id: id,
+	})
+}
 
 export { getReports, downloadReport, uploadReport, updateReport, deleteReport }
