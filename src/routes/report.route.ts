@@ -42,7 +42,7 @@ router.put('/:id', auth, updateReport)
 
 /**
  * @route         DELETE /api/report/:id
- * @description   Update file report
+ * @description   Delete file report
  * @access        Private (can only delete report with same instance_id)
  */
 router.delete('/:id', auth, deleteReport)
