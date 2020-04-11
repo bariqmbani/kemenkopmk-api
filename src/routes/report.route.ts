@@ -14,7 +14,7 @@ const router = Router()
 
 /**
  * @route         GET /api/report
- * @description   Check token for logged in user
+ * @description   View all reports
  * @access        Private (Super and Admin can only view report with same instance_id)
  */
 router.get('/', auth, getReports)
